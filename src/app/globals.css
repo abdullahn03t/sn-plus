@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pine: #1C3D33;
+  --color-stone: #F4F6F1;
+  --color-amber: #E4A335;
+  --color-ink: #14231D;
+  --color-sage-line: #D9DED2;
+
+  --font-sans: var(--font-latin), var(--font-arabic), ui-sans-serif, sans-serif;
+}
