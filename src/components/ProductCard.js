@@ -17,7 +17,7 @@ export default function ProductCard({ product, locale, unavailableLabel }) {
           </div>
         )}
         {!product.is_available && (
-          <div className="absolute top-3 start-3 rounded-full bg-ink/80 px-3 py-1 text-xs font-semibold text-white">
+          <div className="absolute top-3 inset-s-3 rounded-full bg-ink/80 px-3 py-1 text-xs font-semibold text-white">
             {unavailableLabel}
           </div>
         )}
