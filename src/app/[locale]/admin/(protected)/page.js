@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
 import SignOutButton from '@/components/SignOutButton';
 import DeleteProductButton from '@/components/DeleteProductButton';
-import { Plus } from 'lucide-react';
+import { Plus, Tags } from 'lucide-react';
 
 export default async function AdminDashboard() {
   const t = await getTranslations('admin');
@@ -21,10 +21,16 @@ export default async function AdminDashboard() {
         <SignOutButton label={t('signOut')} />
       </div>
 
-      <Link href="/admin/products/new" className="mt-6 inline-flex items-center gap-2 rounded-full bg-pine px-6 py-3 text-white font-semibold hover:opacity-90 transition-opacity">
-        <Plus size={18} />
-        {t('addProduct')}
-      </Link>
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Link href="/admin/products/new" className="inline-flex items-center gap-2 rounded-full bg-pine px-6 py-3 text-white font-semibold hover:opacity-90 transition-opacity">
+          <Plus size={18} />
+          {t('addProduct')}
+        </Link>
+        <Link href="/admin/categories" className="inline-flex items-center gap-2 rounded-full bg-white border border-sage-line px-6 py-3 text-ink font-semibold hover:border-pine transition-colors">
+          <Tags size={18} />
+          {t('manageCategories')}
+        </Link>
+      </div>
 
       <div className="mt-8 space-y-3">
         {products?.map((product) => (
