@@ -15,6 +15,7 @@ export default function ProductForm({ categories, initialData, productId }) {
   const [descAr, setDescAr] = useState(initialData?.description_ar || '');
   const [descEn, setDescEn] = useState(initialData?.description_en || '');
   const [categoryId, setCategoryId] = useState(initialData?.category_id || '');
+  const [isAvailable, setIsAvailable] = useState(initialData?.is_available ?? true);
   const [existingImages, setExistingImages] = useState(initialData?.images || []);
   const [newFiles, setNewFiles] = useState([]);
   const [saving, setSaving] = useState(false);
@@ -58,6 +59,7 @@ export default function ProductForm({ categories, initialData, productId }) {
       description_ar: descAr,
       description_en: descEn,
       category_id: categoryId || null,
+      is_available: isAvailable,
       images: [...existingImages, ...uploadedUrls],
     };
 
@@ -108,6 +110,11 @@ export default function ProductForm({ categories, initialData, productId }) {
             <option key={cat.id} value={cat.id}>{cat.name_ar} / {cat.name_en}</option>
           ))}
         </select>
+      </div>
+
+      <div className="mt-4 flex items-center gap-2">
+        <input type="checkbox" id="isAvailable" checked={isAvailable} onChange={(e) => setIsAvailable(e.target.checked)} className="w-4 h-4 accent-pine" />
+        <label htmlFor="isAvailable" className="text-sm font-medium text-ink/70">{t('isAvailable')}</label>
       </div>
 
       <div className="mt-4">

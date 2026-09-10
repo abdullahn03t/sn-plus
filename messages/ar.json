@@ -37,14 +37,18 @@
     "ctaTitle": "جاهز تبدأ رحلتك الصحية؟",
     "ctaSubtitle": "تصفح تشكيلتنا الكاملة من المنتجات الآن."
   },
-  "products": {
+    "products": {
     "title": "المنتجات",
     "all": "الكل",
-    "empty": "لا توجد منتجات بهذا التصنيف حاليًا."
+    "empty": "لا توجد منتجات بهذا التصنيف حاليًا.",
+    "unavailable": "غير متوفر حاليًا",
+    "searchPlaceholder": "ابحث عن منتج..."
   },
-  "productDetail": {
+    "productDetail": {
     "backToProducts": "الرجوع للمنتجات",
-    "inquireOnWhatsapp": "استفسر عن السعر"
+    "inquireOnWhatsapp": "استفسر عن السعر",
+    "unavailable": "غير متوفر حاليًا",
+    "relatedProducts": "منتجات ذات صلة"
   },
   "notFound": {
     "title": "الصفحة غير موجودة",
@@ -67,7 +71,7 @@
     "whatsappTitle": "تواصل معنا عبر واتساب",
     "whatsappDesc": "أسرع طريقة توصلنا فيها — نرد عليك بأقرب وقت ممكن."
   },
-      "admin": {
+  "admin": {
     "loginTitle": "تسجيل الدخول",
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
@@ -85,6 +89,7 @@
     "descEn": "الوصف (إنكليزي)",
     "category": "التصنيف",
     "noCategory": "بدون تصنيف",
+    "isAvailable": "متوفر حاليًا",
     "images": "الصور",
     "uploadError": "حدث خطأ أثناء رفع الصورة.",
     "saveError": "حدث خطأ أثناء الحفظ.",

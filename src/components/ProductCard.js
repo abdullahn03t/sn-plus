@@ -1,0 +1,31 @@
+import { Link } from '@/i18n/navigation';
+import { Package } from 'lucide-react';
+import Image from 'next/image';
+
+export default function ProductCard({ product, locale, unavailableLabel }) {
+  const name = locale === 'ar' ? product.name_ar : product.name_en;
+  const description = locale === 'ar' ? product.description_ar : product.description_en;
+
+  return (
+    <Link href={`/products/${product.id}`} className="group rounded-2xl bg-white border border-sage-line overflow-hidden hover:border-pine transition-colors">
+      <div className="aspect-square bg-stone relative">
+        {product.images?.[0] ? (
+          <Image src={product.images[0]} alt={name} fill className="object-cover" />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <Package className="text-sage-line" size={48} />
+          </div>
+        )}
+        {!product.is_available && (
+          <div className="absolute top-3 start-3 rounded-full bg-ink/80 px-3 py-1 text-xs font-semibold text-white">
+            {unavailableLabel}
+          </div>
+        )}
+      </div>
+      <div className="p-5">
+        <h3 className="font-semibold text-ink group-hover:text-pine transition-colors">{name}</h3>
+        <p className="mt-1 text-sm text-ink/60 line-clamp-2">{description}</p>
+      </div>
+    </Link>
+  );
+}
