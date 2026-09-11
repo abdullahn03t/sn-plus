@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { getProduct } from '@/lib/products';
 import { supabase } from '@/lib/supabase';
 import { getWhatsappLink } from '@/lib/whatsapp';
 import { notFound } from 'next/navigation';
@@ -7,16 +8,35 @@ import { ChevronRight, ChevronLeft } from 'lucide-react';
 import ProductGallery from '@/components/ProductGallery';
 import ProductCard from '@/components/ProductCard';
 
+export async function generateMetadata({ params }) {
+  const { id, locale } = await params;
+  const { data: product } = await getProduct(id);
+
+  if (!product) {
+    return {};
+  }
+
+  const name = locale === 'ar' ? product.name_ar : product.name_en;
+  const description = locale === 'ar' ? product.description_ar : product.description_en;
+  const image = product.images?.[0];
+
+  return {
+    title: name,
+    description: description || undefined,
+    openGraph: {
+      title: `${name} — SN+`,
+      description: description || undefined,
+      images: image ? [image] : undefined,
+    },
+  };
+}
+
 export default async function ProductDetailPage({ params }) {
   const { id, locale } = await params;
   const t = await getTranslations('productDetail');
   const tProducts = await getTranslations('products');
 
-  const { data: product, error } = await supabase
-    .from('products')
-    .select('*, categories(name_ar, name_en)')
-    .eq('id', id)
-    .single();
+  const { data: product, error } = await getProduct(id);
 
   if (error || !product) {
     notFound();

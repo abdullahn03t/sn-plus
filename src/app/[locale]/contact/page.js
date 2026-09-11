@@ -2,6 +2,11 @@ import { getTranslations } from 'next-intl/server';
 import { getWhatsappLink } from '@/lib/whatsapp';
 import { MessageCircle, Phone } from 'lucide-react';
 
+export async function generateMetadata() {
+  const t = await getTranslations('contact');
+  return { title: t('title') };
+}
+
 export default async function ContactPage() {
   const t = await getTranslations('contact');
   const tHeader = await getTranslations('header');

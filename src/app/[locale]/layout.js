@@ -8,8 +8,15 @@ import Footer from '@/components/Footer';
 import '../globals.css';
 
 export const metadata = {
-  title: 'SN+',
+  title: {
+    default: 'SN+',
+    template: '%s | SN+',
+  },
   description: 'SN+ — منتجات مكملات غذائية عالية الجودة',
+  openGraph: {
+    siteName: 'SN+',
+    type: 'website',
+  },
 };
 
 export default async function RootLayout({ children, params }) {

@@ -4,6 +4,11 @@ import { supabase } from '@/lib/supabase';
 import SearchBar from '@/components/SearchBar';
 import ProductCard from '@/components/ProductCard';
 
+export async function generateMetadata() {
+  const t = await getTranslations('products');
+  return { title: t('title') };
+}
+
 export default async function ProductsPage({ searchParams }) {
   const locale = await getLocale();
   const t = await getTranslations('products');

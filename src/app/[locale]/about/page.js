@@ -1,6 +1,11 @@
 import { getTranslations } from 'next-intl/server';
 import { ClipboardCheck, Eye, MessageCircle } from 'lucide-react';
 
+export async function generateMetadata() {
+  const t = await getTranslations('about');
+  return { title: t('title') };
+}
+
 export default async function AboutPage() {
   const t = await getTranslations('about');
 
