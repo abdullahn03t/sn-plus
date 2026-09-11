@@ -109,6 +109,20 @@
     "manageCategories": "Manage Categories",
     "categorySaveError": "An error occurred while saving the category.",
     "confirmDeleteCategory": "Are you sure you want to delete this category? Linked products will remain but without a category.",
-    "noCategories": "No categories yet."
+    "noCategories": "No categories yet.",
+    "managePosts": "Manage Posts",
+    "addPost": "Add Post",
+    "editPost": "Edit Post",
+    "postTitleAr": "Post Title (Arabic)",
+    "postTitleEn": "Post Title (English)",
+    "excerptAr": "Short Excerpt (Arabic)",
+    "excerptEn": "Short Excerpt (English)",
+    "contentAr": "Full Content (Arabic)",
+    "contentEn": "Full Content (English)",
+    "coverImage": "Cover Image",
+    "published": "Published",
+    "draft": "Draft",
+    "confirmDeletePost": "Are you sure you want to delete this post?",
+    "noPosts": "No posts added yet."
   }
 }
