@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "products": "Products",
+    "blog": "Blog",
     "about": "About",
     "contact": "Contact"
   },
@@ -37,14 +38,14 @@
     "ctaTitle": "Ready to start your health journey?",
     "ctaSubtitle": "Browse our full range of products now."
   },
-    "products": {
+  "products": {
     "title": "Products",
     "all": "All",
     "empty": "No products in this category yet.",
     "unavailable": "Currently Unavailable",
     "searchPlaceholder": "Search products..."
   },
-    "productDetail": {
+  "productDetail": {
     "backToProducts": "Back to Products",
     "inquireOnWhatsapp": "Ask for Price",
     "unavailable": "Currently Unavailable",
@@ -70,6 +71,12 @@
     "subtitle": "Have a question? We're here to help.",
     "whatsappTitle": "Reach Us on WhatsApp",
     "whatsappDesc": "The fastest way to reach us — we'll get back to you as soon as possible."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Tips and topics on nutrition and health",
+    "empty": "No articles yet.",
+    "backToBlog": "Back to Blog"
   },
   "admin": {
     "loginTitle": "Admin Login",

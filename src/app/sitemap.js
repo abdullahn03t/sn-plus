@@ -3,7 +3,7 @@ import { supabase } from '@/lib/supabase';
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 export default async function sitemap() {
-  const staticPaths = ['', '/products', '/about', '/contact'];
+  const staticPaths = ['', '/products', '/about', '/contact', '/blog'];
   const locales = ['ar', 'en'];
 
   const staticEntries = locales.flatMap((locale) =>
@@ -22,5 +22,14 @@ export default async function sitemap() {
     }))
   );
 
-  return [...staticEntries, ...productEntries];
+  const { data: posts } = await supabase.from('posts').select('id, updated_at').eq('published', true);
+
+  const postEntries = (posts || []).flatMap((post) =>
+    locales.map((locale) => ({
+      url: `${baseUrl}/${locale}/blog/${post.id}`,
+      lastModified: post.updated_at ? new Date(post.updated_at) : new Date(),
+    }))
+  );
+
+  return [...staticEntries, ...productEntries, ...postEntries];
 }
