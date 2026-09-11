@@ -70,7 +70,22 @@
     "title": "Contact Us",
     "subtitle": "Have a question? We're here to help.",
     "whatsappTitle": "Reach Us on WhatsApp",
-    "whatsappDesc": "The fastest way to reach us — we'll get back to you as soon as possible."
+    "whatsappDesc": "The fastest way to reach us — we'll get back to you as soon as possible.",
+    "faqTitle": "Frequently Asked Questions",
+    "faq": [
+      {
+        "question": "How do I order a product from the site?",
+        "answer": "Browse the products, and when you like one, click the Ask for Price button — it opens WhatsApp directly with a ready message naming the product, and we'll complete the order with you from there."
+      },
+      {
+        "question": "Why aren't prices shown on the site?",
+        "answer": "We make sure to give you the exact, up-to-date price directly on WhatsApp, especially since some prices vary based on quantity or current offers."
+      },
+      {
+        "question": "How do I know if a product is available?",
+        "answer": "If a product is temporarily unavailable, you'll see a Currently Unavailable badge on its image — you can still ask on WhatsApp when it'll be back in stock."
+      }
+    ]
   },
   "blog": {
     "title": "Blog",
