@@ -3,8 +3,8 @@ import { Package } from 'lucide-react';
 import Image from 'next/image';
 
 export default function ProductCard({ product, locale, unavailableLabel }) {
-  const name = locale === 'ar' ? product.name_ar : product.name_en;
-  const description = locale === 'ar' ? product.description_ar : product.description_en;
+  const name = locale === 'en' ? product.name_en : product.name_ar;
+  const description = locale === 'en' ? product.description_en : product.description_ar;
 
   return (
     <Link href={`/products/${product.id}`} className="group rounded-2xl bg-white border border-sage-line overflow-hidden hover:border-pine transition-colors">

@@ -11,8 +11,8 @@ export async function generateMetadata({ params }) {
 
   if (!post) return {};
 
-  const title = locale === 'ar' ? post.title_ar : post.title_en;
-  const excerpt = locale === 'ar' ? post.excerpt_ar : post.excerpt_en;
+  const title = locale === 'en' ? post.title_en : post.title_ar;
+  const excerpt = locale === 'en' ? post.excerpt_en : post.excerpt_ar;
 
   return {
     title,
@@ -35,9 +35,9 @@ export default async function BlogPostPage({ params }) {
     notFound();
   }
 
-  const title = locale === 'ar' ? post.title_ar : post.title_en;
-  const content = locale === 'ar' ? post.content_ar : post.content_en;
-  const BackIcon = locale === 'ar' ? ChevronRight : ChevronLeft;
+  const title = locale === 'en' ? post.title_en : post.title_ar;
+  const content = locale === 'en' ? post.content_en : post.content_ar;
+  const BackIcon = locale === 'en' ? ChevronLeft : ChevronRight;
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">

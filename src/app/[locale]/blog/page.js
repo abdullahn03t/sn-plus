@@ -27,8 +27,8 @@ export default async function BlogPage() {
       {posts && posts.length > 0 ? (
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => {
-            const title = locale === 'ar' ? post.title_ar : post.title_en;
-            const excerpt = locale === 'ar' ? post.excerpt_ar : post.excerpt_en;
+            const title = locale === 'en' ? post.title_en : post.title_ar;
+            const excerpt = locale === 'en' ? post.excerpt_en : post.excerpt_ar;
             return (
               <Link key={post.id} href={`/blog/${post.id}`} className="group rounded-2xl bg-white border border-sage-line overflow-hidden hover:border-pine transition-colors">
                 <div className="aspect-video bg-stone relative">

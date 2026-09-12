@@ -16,8 +16,8 @@ export async function generateMetadata({ params }) {
     return {};
   }
 
-  const name = locale === 'ar' ? product.name_ar : product.name_en;
-  const description = locale === 'ar' ? product.description_ar : product.description_en;
+  const name = locale === 'en' ? product.name_en : product.name_ar;
+  const description = locale === 'en' ? product.description_en : product.description_ar;
   const image = product.images?.[0];
 
   return {
@@ -55,17 +55,17 @@ export default async function ProductDetailPage({ params }) {
 
   const { data: relatedProducts } = await relatedQuery;
 
-  const name = locale === 'ar' ? product.name_ar : product.name_en;
-  const description = locale === 'ar' ? product.description_ar : product.description_en;
+  const name = locale === 'en' ? product.name_en : product.name_ar;
+  const description = locale === 'en' ? product.description_en : product.description_ar;
   const categoryName = product.categories
-    ? (locale === 'ar' ? product.categories.name_ar : product.categories.name_en)
+    ? (locale === 'en' ? product.categories.name_en : product.categories.name_ar)
     : null;
 
   const whatsappMessage = product.is_available
-    ? (locale === 'ar' ? `مرحبًا، أرغب بالاستفسار عن منتج: ${name}` : `Hello, I'd like to ask about this product: ${name}`)
-    : (locale === 'ar' ? `مرحبًا، أرغب أعرف متى يتوفر منتج: ${name}` : `Hello, I'd like to know when this product will be available again: ${name}`);
+    ? (locale === 'en' ? `Hello, I'd like to ask about this product: ${name}` : `مرحبًا، أرغب بالاستفسار عن منتج: ${name}`)
+    : (locale === 'en' ? `Hello, I'd like to know when this product will be available again: ${name}` : `مرحبًا، أرغب أعرف متى يتوفر منتج: ${name}`);
 
-  const BackIcon = locale === 'ar' ? ChevronRight : ChevronLeft;
+  const BackIcon = locale === 'en' ? ChevronLeft : ChevronRight;
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">

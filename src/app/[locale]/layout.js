@@ -2,7 +2,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { fontLatin, fontArabic } from '@/fonts';
+import { fontLatin, fontArabic, fontKurdishFallback } from '@/fonts';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import '../globals.css';
@@ -27,10 +27,10 @@ export default async function RootLayout({ children, params }) {
   }
 
   setRequestLocale(locale);
-  const dir = locale === 'ar' ? 'rtl' : 'ltr';
+  const dir = locale === 'en' ? 'ltr' : 'rtl';
 
   return (
-    <html lang={locale} dir={dir} className={`${fontLatin.variable} ${fontArabic.variable}`}>
+    <html lang={locale} dir={dir} className={`${fontLatin.variable} ${fontArabic.variable} ${fontKurdishFallback.variable}`}>
       <body className="font-sans bg-stone text-ink antialiased">
         <NextIntlClientProvider>
           <Header />

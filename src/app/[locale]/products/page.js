@@ -4,11 +4,6 @@ import { supabase } from '@/lib/supabase';
 import SearchBar from '@/components/SearchBar';
 import ProductCard from '@/components/ProductCard';
 
-export async function generateMetadata() {
-  const t = await getTranslations('products');
-  return { title: t('title') };
-}
-
 export default async function ProductsPage({ searchParams }) {
   const locale = await getLocale();
   const t = await getTranslations('products');
@@ -55,7 +50,7 @@ export default async function ProductsPage({ searchParams }) {
           if (q) params.set('q', q);
           return (
             <Link key={cat.id} href={`/products?${params.toString()}`} className={`rounded-full px-4 py-2 text-sm font-medium ${category === cat.slug ? 'bg-pine text-white' : 'bg-white border border-sage-line text-ink'}`}>
-              {locale === 'ar' ? cat.name_ar : cat.name_en}
+              {locale === 'en' ? cat.name_en : cat.name_ar}
             </Link>
           );
         })}

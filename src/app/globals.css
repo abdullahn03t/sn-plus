@@ -7,5 +7,5 @@
   --color-ink: #14231D;
   --color-sage-line: #D9DED2;
 
-  --font-sans: var(--font-latin), var(--font-arabic), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-latin), var(--font-arabic), var(--font-kurdish-fallback), ui-sans-serif, sans-serif;
 }
