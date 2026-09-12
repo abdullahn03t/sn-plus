@@ -4,7 +4,8 @@
     "products": "بەرهەمەکان",
     "blog": "بلۆگ",
     "about": "دەربارەمان",
-    "contact": "پەیوەندی"
+    "contact": "پەیوەندی",
+    "calculator": "ژمێرەر"
   },
   "header": {
     "whatsappCta": "پەیوەندی بە واتساپەوە",
@@ -47,6 +48,7 @@
   "productDetail": {
     "backToProducts": "گەڕانەوە بۆ بەرهەمەکان",
     "inquireOnWhatsapp": "پرسیار لەسەر نرخ بکە",
+    "orderOnWhatsapp": "لە ڕێگەی واتساپەوە داوا بکە",
     "unavailable": "ئێستا بەردەست نییە",
     "relatedProducts": "بەرهەمی پەیوەندیدار"
   },
@@ -110,6 +112,8 @@
     "descEn": "باسکردن (ئینگلیزی)",
     "category": "پۆل",
     "noCategory": "بێ پۆل",
+    "price": "نرخ",
+    "priceOptional": "ئارەزوومەندانە",
     "isAvailable": "ئێستا بەردەستە",
     "images": "وێنەکان",
     "uploadError": "ھەڵەیەک ڕوویدا لە کاتی بارکردنی وێنە.",
@@ -138,5 +142,27 @@
     "draft": "ڕەشنووس",
     "confirmDeletePost": "دڵنیایت لە سڕینەوەی ئەم بابەتە؟",
     "noPosts": "ھێشتا ھیچ بابەتێک زیاد نەکراوە."
+  },
+  "calculator": {
+    "title": "ژمێرەری خۆراک",
+    "subtitle": "بەگوێرەی زانیارییەکانت پێویستیت لە کالۆری و پرۆتینی ڕۆژانە ھەڵسەنگێنە.",
+    "male": "نێر",
+    "female": "مێ",
+    "age": "تەمەن",
+    "weightKg": "کێش (کیلۆگرام)",
+    "heightCm": "باڵا (سانتیمەتر)",
+    "activityLevel": "ئاستی چالاکی",
+    "activitySedentary": "کەم جوڵە",
+    "activityLight": "چالاکی سووک",
+    "activityModerate": "چالاکی مامناوەند",
+    "activityActive": "چالاکی بەرز",
+    "activityVeryActive": "چالاکی زۆر بەرز",
+    "calculate": "ھەژماردن",
+    "bmrLabel": "ڕێژەی سووتانی بنەڕەتی",
+    "tdeeLabel": "کالۆری ڕۆژانە بۆ پاراستنی کێش",
+    "proteinLabel": "پێویستی پرۆتینی ڕۆژانە",
+    "caloriesUnit": "کالۆری",
+    "gramsUnit": "گرام",
+    "disclaimer": "ئەمانە ژمارەی ھەڵسەنگاندنی گشتین بەپێی یاسا زانراوەکان، جێگری ڕاوێژکاری پسپۆڕی خۆراک بۆ دۆخی تایبەتیت نییە."
   }
 }

@@ -25,6 +25,9 @@ export default function ProductCard({ product, locale, unavailableLabel }) {
       <div className="p-5">
         <h3 className="font-semibold text-ink group-hover:text-pine transition-colors">{name}</h3>
         <p className="mt-1 text-sm text-ink/60 line-clamp-2">{description}</p>
+        {product.price != null && (
+          <p className="mt-2 font-bold text-pine">{product.price.toLocaleString()} د.ع</p>
+        )}
       </div>
     </Link>
   );

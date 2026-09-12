@@ -28,6 +28,7 @@ export default function Footer() {
               <li><Link href="/blog" className="text-sm text-white/80 hover:text-white">{t('blog')}</Link></li>
               <li><Link href="/about" className="text-sm text-white/80 hover:text-white">{t('about')}</Link></li>
               <li><Link href="/contact" className="text-sm text-white/80 hover:text-white">{t('contact')}</Link></li>
+              <li><Link href="/calculator" className="text-sm text-white/80 hover:text-white">{t('calculator')}</Link></li>
             </ul>
           </div>
 

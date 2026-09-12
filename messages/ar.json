@@ -4,7 +4,8 @@
     "products": "المنتجات",
     "blog": "المدونة",
     "about": "من نحن",
-    "contact": "اتصل بنا"
+    "contact": "اتصل بنا",
+    "calculator": "الحاسبة"
   },
   "header": {
     "whatsappCta": "تواصل عبر واتساب",
@@ -48,6 +49,7 @@
   "productDetail": {
     "backToProducts": "الرجوع للمنتجات",
     "inquireOnWhatsapp": "استفسر عن السعر",
+    "orderOnWhatsapp": "اطلب عبر واتساب",
     "unavailable": "غير متوفر حاليًا",
     "relatedProducts": "منتجات ذات صلة"
   },
@@ -111,6 +113,8 @@
     "descEn": "الوصف (إنكليزي)",
     "category": "التصنيف",
     "noCategory": "بدون تصنيف",
+    "price": "السعر",
+    "priceOptional": "اختياري",
     "isAvailable": "متوفر حاليًا",
     "images": "الصور",
     "uploadError": "حدث خطأ أثناء رفع الصورة.",
@@ -139,5 +143,27 @@
     "draft": "مسودة",
     "confirmDeletePost": "هل أنت متأكد من حذف هذا المقال؟",
     "noPosts": "لا توجد مقالات مضافة حتى الآن."
+  },
+  "calculator": {
+    "title": "الحاسبة الغذائية",
+    "subtitle": "احسب احتياجك التقريبي من السعرات الحرارية والبروتين اليومي بناءً على معلوماتك.",
+    "male": "ذكر",
+    "female": "أنثى",
+    "age": "العمر",
+    "weightKg": "الوزن (كغم)",
+    "heightCm": "الطول (سم)",
+    "activityLevel": "مستوى النشاط",
+    "activitySedentary": "قليل الحركة",
+    "activityLight": "نشاط خفيف",
+    "activityModerate": "نشاط متوسط",
+    "activityActive": "نشاط عالي",
+    "activityVeryActive": "نشاط عالي جدًا",
+    "calculate": "احسب",
+    "bmrLabel": "معدل الأيض الأساسي",
+    "tdeeLabel": "السعرات اليومية للحفاظ على الوزن",
+    "proteinLabel": "احتياج البروتين اليومي",
+    "caloriesUnit": "سعرة حرارية",
+    "gramsUnit": "غرام",
+    "disclaimer": "هذي أرقام تقديرية عامة بناءً على معادلات معروفة، وليست بديلًا عن استشارة أخصائي تغذية لحالتك الشخصية."
   }
 }

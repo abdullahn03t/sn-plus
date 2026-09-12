@@ -61,10 +61,24 @@ export default async function ProductDetailPage({ params }) {
     ? (locale === 'en' ? product.categories.name_en : product.categories.name_ar)
     : null;
 
-  const whatsappMessage = product.is_available
-    ? (locale === 'en' ? `Hello, I'd like to ask about this product: ${name}` : `مرحبًا، أرغب بالاستفسار عن منتج: ${name}`)
-    : (locale === 'en' ? `Hello, I'd like to know when this product will be available again: ${name}` : `مرحبًا، أرغب أعرف متى يتوفر منتج: ${name}`);
+  const hasPrice = product.price != null;
 
+  let whatsappMessage;
+  if (!product.is_available) {
+    whatsappMessage = locale === 'en'
+      ? `Hello, I'd like to know when this product will be available again: ${name}`
+      : `مرحبًا، أرغب أعرف متى يتوفر منتج: ${name}`;
+  } else if (hasPrice) {
+    whatsappMessage = locale === 'en'
+      ? `Hello, I'd like to order: ${name} (${product.price} IQD)`
+      : `مرحبًا، أرغب بطلب منتج: ${name} (${product.price} د.ع)`;
+  } else {
+    whatsappMessage = locale === 'en'
+      ? `Hello, I'd like to ask about this product: ${name}`
+      : `مرحبًا، أرغب بالاستفسار عن منتج: ${name}`;
+  }
+
+  const ctaLabel = hasPrice && product.is_available ? t('orderOnWhatsapp') : t('inquireOnWhatsapp');
   const BackIcon = locale === 'en' ? ChevronLeft : ChevronRight;
 
   return (
@@ -89,6 +103,10 @@ export default async function ProductDetailPage({ params }) {
             </span>
           )}
 
+          {hasPrice && (
+            <p className="mt-3 text-2xl font-bold text-pine">{product.price.toLocaleString()} د.ع</p>
+          )}
+
           <p className="mt-4 text-ink/70 leading-relaxed whitespace-pre-line">
             {description}
           </p>
@@ -99,7 +117,7 @@ export default async function ProductDetailPage({ params }) {
             rel="noopener noreferrer"
             className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-pine px-8 py-4 text-white font-semibold w-full sm:w-auto hover:opacity-90 transition-opacity"
           >
-            {t('inquireOnWhatsapp')}
+            {ctaLabel}
           </a>
         </div>
       </div>
