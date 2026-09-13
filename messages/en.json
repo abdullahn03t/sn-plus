@@ -58,7 +58,9 @@
     "unavailable": "Currently Unavailable",
     "relatedProducts": "Related Products",
     "ratingPrompt": "Rate this product (optional)",
-    "ratingThanks": "Thanks for your rating!"
+    "ratingThanks": "Thanks for your rating!",
+    "flavors": "Flavors",
+    "sizes": "Sizes"
   },
   "notFound": {
     "title": "Page Not Found",
@@ -133,6 +135,13 @@
     "priceOptional": "Optional",
     "isAvailable": "Currently Available",
     "images": "Images",
+    "variants": "Flavors / Sizes",
+    "variantsHint": "Add any flavors or sizes for this product (optional).",
+    "variantFlavor": "Flavor",
+    "variantSize": "Size",
+    "variantLabelAr": "Name (Arabic)",
+    "variantLabelEn": "Name (English)",
+    "addVariant": "Add",
     "uploadError": "An error occurred while uploading the image.",
     "saveError": "An error occurred while saving.",
     "saving": "Saving...",
@@ -181,5 +190,15 @@
     "caloriesUnit": "calories",
     "gramsUnit": "grams",
     "disclaimer": "These are general estimates based on standard formulas, not a substitute for consulting a nutrition specialist about your personal situation."
+  },
+  "emailWidget": {
+    "openLabel": "Send a message",
+    "title": "Send Us a Message",
+    "yourEmail": "Your Email",
+    "yourMessage": "Your Message",
+    "sendButton": "Send",
+    "sending": "Sending...",
+    "sentMessage": "Your message was sent successfully, thanks for reaching out!",
+    "errorMessage": "An error occurred while sending. Try again or reach us on WhatsApp."
   }
 }

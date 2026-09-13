@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { useRouter } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { createSupabaseBrowserClient } from '@/lib/supabase-browser';
+import VariantEditor from '@/components/VariantEditor';
 
-export default function ProductForm({ categories, companies, initialData, productId }) {
+export default function ProductForm({ categories, companies, initialData, initialVariants, productId }) {
   const t = useTranslations('admin');
   const router = useRouter();
   const isEditing = Boolean(productId);
@@ -20,6 +21,7 @@ export default function ProductForm({ categories, companies, initialData, produc
   const [isAvailable, setIsAvailable] = useState(initialData?.is_available ?? true);
   const [existingImages, setExistingImages] = useState(initialData?.images || []);
   const [newFiles, setNewFiles] = useState([]);
+  const [variants, setVariants] = useState(initialVariants || []);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
 
@@ -64,17 +66,41 @@ export default function ProductForm({ categories, companies, initialData, produc
       images: [...existingImages, ...uploadedUrls],
     };
 
-    const { error: saveError } = isEditing
-      ? await supabase.from('products').update(payload).eq('id', productId)
-      : await supabase.from('products').insert(payload);
+    let currentProductId = productId;
 
-    setSaving(false);
-
-    if (saveError) {
-      setError(t('saveError'));
-      return;
+    if (isEditing) {
+      const { error: saveError } = await supabase.from('products').update(payload).eq('id', productId);
+      if (saveError) {
+        setError(t('saveError'));
+        setSaving(false);
+        return;
+      }
+    } else {
+      const { data: inserted, error: saveError } = await supabase.from('products').insert(payload).select('id').single();
+      if (saveError || !inserted) {
+        setError(t('saveError'));
+        setSaving(false);
+        return;
+      }
+      currentProductId = inserted.id;
     }
 
+    await supabase.from('product_variants').delete().eq('product_id', currentProductId);
+
+    const validVariants = variants.filter((v) => v.label_ar.trim() && v.label_en.trim());
+    if (validVariants.length > 0) {
+      await supabase.from('product_variants').insert(
+        validVariants.map((v) => ({
+          product_id: currentProductId,
+          variant_type: v.variant_type,
+          label_ar: v.label_ar,
+          label_en: v.label_en,
+          is_available: v.is_available,
+        }))
+      );
+    }
+
+    setSaving(false);
     router.push('/admin');
     router.refresh();
   }
@@ -148,6 +174,8 @@ export default function ProductForm({ categories, companies, initialData, produc
         )}
         <input type="file" multiple accept="image/*" onChange={(e) => setNewFiles(Array.from(e.target.files))} className="mt-2 block w-full text-sm" />
       </div>
+
+      <VariantEditor variants={variants} setVariants={setVariants} t={t} />
 
       {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
 

@@ -65,6 +65,9 @@ export default async function ProductDetailPage({ params }) {
     ? (locale === 'en' ? product.companies.name_en : product.companies.name_ar)
     : null;
 
+  const flavorVariants = (product.product_variants || []).filter((v) => v.variant_type === 'flavor');
+  const sizeVariants = (product.product_variants || []).filter((v) => v.variant_type === 'size');
+
   const hasPrice = product.price != null;
 
   let whatsappMessage;
@@ -116,6 +119,35 @@ export default async function ProductDetailPage({ params }) {
           <p className="mt-4 text-ink/70 leading-relaxed whitespace-pre-line">
             {description}
           </p>
+
+          {(flavorVariants.length > 0 || sizeVariants.length > 0) && (
+            <div className="mt-4 space-y-3">
+              {flavorVariants.length > 0 && (
+                <div>
+                  <p className="text-xs font-medium text-ink/50 mb-1.5">{t('flavors')}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {flavorVariants.map((v) => (
+                      <span key={v.id} className={`rounded-full border px-3 py-1 text-xs font-medium ${v.is_available ? 'border-sage-line text-ink' : 'border-sage-line text-ink/30 line-through'}`}>
+                        {locale === 'en' ? v.label_en : v.label_ar}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {sizeVariants.length > 0 && (
+                <div>
+                  <p className="text-xs font-medium text-ink/50 mb-1.5">{t('sizes')}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {sizeVariants.map((v) => (
+                      <span key={v.id} className={`rounded-full border px-3 py-1 text-xs font-medium ${v.is_available ? 'border-sage-line text-ink' : 'border-sage-line text-ink/30 line-through'}`}>
+                        {locale === 'en' ? v.label_en : v.label_ar}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           <a
             href={getWhatsappLink(whatsappMessage)}

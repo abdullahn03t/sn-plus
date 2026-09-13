@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing';
 import { fontLatin, fontArabic, fontKurdishFallback } from '@/fonts';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FloatingEmailButton from '@/components/FloatingEmailButton';
 import '../globals.css';
 
 export const metadata = {
@@ -36,6 +37,7 @@ export default async function RootLayout({ children, params }) {
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer />
+          <FloatingEmailButton />
         </NextIntlClientProvider>
       </body>
     </html>

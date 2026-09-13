@@ -58,7 +58,9 @@
     "unavailable": "غير متوفر حاليًا",
     "relatedProducts": "منتجات ذات صلة",
     "ratingPrompt": "قيّم هذا المنتج (اختياري)",
-    "ratingThanks": "شكرًا لتقييمك!"
+    "ratingThanks": "شكرًا لتقييمك!",
+    "flavors": "النكهات",
+    "sizes": "الأحجام"
   },
   "notFound": {
     "title": "الصفحة غير موجودة",
@@ -133,6 +135,13 @@
     "priceOptional": "اختياري",
     "isAvailable": "متوفر حاليًا",
     "images": "الصور",
+    "variants": "النكهات / الأحجام",
+    "variantsHint": "أضف أي نكهات أو أحجام لهذا المنتج (اختياري).",
+    "variantFlavor": "نكهة",
+    "variantSize": "حجم",
+    "variantLabelAr": "الاسم (عربي)",
+    "variantLabelEn": "الاسم (إنكليزي)",
+    "addVariant": "إضافة",
     "uploadError": "حدث خطأ أثناء رفع الصورة.",
     "saveError": "حدث خطأ أثناء الحفظ.",
     "saving": "جارِ الحفظ...",
@@ -181,5 +190,15 @@
     "caloriesUnit": "سعرة حرارية",
     "gramsUnit": "غرام",
     "disclaimer": "هذي أرقام تقديرية عامة بناءً على معادلات معروفة، وليست بديلًا عن استشارة أخصائي تغذية لحالتك الشخصية."
+  },
+  "emailWidget": {
+    "openLabel": "أرسل رسالة",
+    "title": "أرسل رسالة لنا",
+    "yourEmail": "بريدك الإلكتروني",
+    "yourMessage": "رسالتك",
+    "sendButton": "إرسال",
+    "sending": "جارِ الإرسال...",
+    "sentMessage": "تم إرسال رسالتك بنجاح، شكرًا لتواصلك معنا!",
+    "errorMessage": "حدث خطأ أثناء الإرسال، حاول مرة أخرى أو تواصل معنا عبر واتساب."
   }
 }
