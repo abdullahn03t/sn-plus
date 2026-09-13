@@ -42,16 +42,23 @@
   "products": {
     "title": "المنتجات",
     "all": "الكل",
+    "allCompanies": "كل الشركات",
     "empty": "لا توجد منتجات بهذا التصنيف حاليًا.",
     "unavailable": "غير متوفر حاليًا",
-    "searchPlaceholder": "ابحث عن منتج..."
+    "searchPlaceholder": "ابحث عن منتج...",
+    "sortNewest": "الأحدث",
+    "sortNameAsc": "الاسم (أ-ي)",
+    "sortPriceAsc": "السعر: من الأقل",
+    "sortPriceDesc": "السعر: من الأعلى"
   },
   "productDetail": {
     "backToProducts": "الرجوع للمنتجات",
     "inquireOnWhatsapp": "استفسر عن السعر",
     "orderOnWhatsapp": "اطلب عبر واتساب",
     "unavailable": "غير متوفر حاليًا",
-    "relatedProducts": "منتجات ذات صلة"
+    "relatedProducts": "منتجات ذات صلة",
+    "ratingPrompt": "قيّم هذا المنتج (اختياري)",
+    "ratingThanks": "شكرًا لتقييمك!"
   },
   "notFound": {
     "title": "الصفحة غير موجودة",
@@ -113,6 +120,15 @@
     "descEn": "الوصف (إنكليزي)",
     "category": "التصنيف",
     "noCategory": "بدون تصنيف",
+    "company": "الشركة",
+    "noCompany": "بدون شركة",
+    "manageCompanies": "إدارة الشركات",
+    "addCompany": "إضافة شركة",
+    "companySaveError": "حدث خطأ أثناء حفظ الشركة.",
+    "confirmDeleteCompany": "هل أنت متأكد من حذف هذه الشركة؟ المنتجات المرتبطة بها تبقى موجودة لكن بدون شركة.",
+    "noCompanies": "لا توجد شركات حتى الآن.",
+    "viewRatings": "عرض التقييمات",
+    "noRatings": "لا توجد تقييمات حتى الآن.",
     "price": "السعر",
     "priceOptional": "اختياري",
     "isAvailable": "متوفر حاليًا",

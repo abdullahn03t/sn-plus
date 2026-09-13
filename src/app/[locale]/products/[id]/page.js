@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import ProductGallery from '@/components/ProductGallery';
 import ProductCard from '@/components/ProductCard';
+import RatingWidget from '@/components/RatingWidget';
 
 export async function generateMetadata({ params }) {
   const { id, locale } = await params;
@@ -60,6 +61,9 @@ export default async function ProductDetailPage({ params }) {
   const categoryName = product.categories
     ? (locale === 'en' ? product.categories.name_en : product.categories.name_ar)
     : null;
+  const companyName = product.companies
+    ? (locale === 'en' ? product.companies.name_en : product.companies.name_ar)
+    : null;
 
   const hasPrice = product.price != null;
 
@@ -92,9 +96,11 @@ export default async function ProductDetailPage({ params }) {
         <ProductGallery images={product.images || []} name={name} />
 
         <div>
-          {categoryName && (
-            <span className="text-sm font-medium text-pine">{categoryName}</span>
-          )}
+          <div className="flex items-center gap-2 flex-wrap">
+            {companyName && <span className="text-sm font-medium text-ink/60">{companyName}</span>}
+            {companyName && categoryName && <span className="text-ink/30">•</span>}
+            {categoryName && <span className="text-sm font-medium text-pine">{categoryName}</span>}
+          </div>
           <h1 className="mt-2 text-3xl font-bold text-ink">{name}</h1>
 
           {!product.is_available && (
@@ -119,6 +125,8 @@ export default async function ProductDetailPage({ params }) {
           >
             {ctaLabel}
           </a>
+
+          <RatingWidget productId={product.id} />
         </div>
       </div>
 

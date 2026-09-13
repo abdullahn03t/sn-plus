@@ -8,8 +8,9 @@ export default async function EditProductPage({ params }) {
   const t = await getTranslations('admin');
   const supabase = await createSupabaseServerClient();
 
-  const [{ data: categories }, { data: product }] = await Promise.all([
+  const [{ data: categories }, { data: companies }, { data: product }] = await Promise.all([
     supabase.from('categories').select('*').order('name_ar'),
+    supabase.from('companies').select('*').order('name_ar'),
     supabase.from('products').select('*').eq('id', id).single(),
   ]);
 
@@ -21,7 +22,7 @@ export default async function EditProductPage({ params }) {
     <div className="mx-auto max-w-4xl px-4 py-16">
       <h1 className="text-2xl font-bold text-ink">{t('editProduct')}</h1>
       <div className="mt-8">
-        <ProductForm categories={categories || []} initialData={product} productId={id} />
+        <ProductForm categories={categories || []} companies={companies || []} initialData={product} productId={id} />
       </div>
     </div>
   );

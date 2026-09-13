@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase';
 export const getProduct = cache(async (id) => {
   return supabase
     .from('products')
-    .select('*, categories(name_ar, name_en)')
+    .select('*, categories(name_ar, name_en), companies(name_ar, name_en)')
     .eq('id', id)
     .single();
 });

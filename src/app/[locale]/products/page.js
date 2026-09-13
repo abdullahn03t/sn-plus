@@ -2,22 +2,32 @@ import { getTranslations, getLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { supabase } from '@/lib/supabase';
 import SearchBar from '@/components/SearchBar';
+import SortDropdown from '@/components/SortDropdown';
+import CompanyFilter from '@/components/CompanyFilter';
 import ProductCard from '@/components/ProductCard';
+
+function buildHref(base, params) {
+  const search = new URLSearchParams();
+  Object.entries(params).forEach(([key, value]) => {
+    if (value) search.set(key, value);
+  });
+  const qs = search.toString();
+  return qs ? `${base}?${qs}` : base;
+}
 
 export default async function ProductsPage({ searchParams }) {
   const locale = await getLocale();
   const t = await getTranslations('products');
-  const { category, q } = await searchParams;
+  const { category, company, q, sort } = await searchParams;
 
-  const { data: categories } = await supabase
-    .from('categories')
-    .select('*')
-    .order('created_at');
+  const [{ data: categories }, { data: companies }] = await Promise.all([
+    supabase.from('categories').select('*').order('created_at'),
+    supabase.from('companies').select('*').order('created_at'),
+  ]);
 
   let query = supabase
     .from('products')
-    .select('*, categories(slug, name_ar, name_en)')
-    .order('created_at', { ascending: false });
+    .select('*, categories(slug, name_ar, name_en)');
 
   if (category) {
     const matched = categories?.find((c) => c.slug === category);
@@ -26,8 +36,25 @@ export default async function ProductsPage({ searchParams }) {
     }
   }
 
+  if (company) {
+    const matchedCompany = companies?.find((c) => c.slug === company);
+    if (matchedCompany) {
+      query = query.eq('company_id', matchedCompany.id);
+    }
+  }
+
   if (q) {
     query = query.or(`name_ar.ilike.%${q}%,name_en.ilike.%${q}%,description_ar.ilike.%${q}%,description_en.ilike.%${q}%`);
+  }
+
+  if (sort === 'priceAsc') {
+    query = query.order('price', { ascending: true, nullsFirst: false });
+  } else if (sort === 'priceDesc') {
+    query = query.order('price', { ascending: false, nullsFirst: false });
+  } else if (sort === 'nameAsc') {
+    query = query.order(locale === 'en' ? 'name_en' : 'name_ar', { ascending: true });
+  } else {
+    query = query.order('created_at', { ascending: false });
   }
 
   const { data: products } = await query;
@@ -36,24 +63,23 @@ export default async function ProductsPage({ searchParams }) {
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
       <h1 className="text-3xl font-bold text-ink">{t('title')}</h1>
 
-      <div className="mt-6">
-        <SearchBar />
+      <div className="mt-6 flex flex-wrap gap-3 items-center">
+        <div className="flex-1 min-w-50">
+          <SearchBar />
+        </div>
+        {companies && companies.length > 0 && <CompanyFilter companies={companies} />}
+        <SortDropdown />
       </div>
 
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href={q ? `/products?q=${encodeURIComponent(q)}` : '/products'} className={`rounded-full px-4 py-2 text-sm font-medium ${!category ? 'bg-pine text-white' : 'bg-white border border-sage-line text-ink'}`}>
+        <Link href={buildHref('/products', { company, q, sort })} className={`rounded-full px-4 py-2 text-sm font-medium ${!category ? 'bg-pine text-white' : 'bg-white border border-sage-line text-ink'}`}>
           {t('all')}
         </Link>
-        {categories?.map((cat) => {
-          const params = new URLSearchParams();
-          params.set('category', cat.slug);
-          if (q) params.set('q', q);
-          return (
-            <Link key={cat.id} href={`/products?${params.toString()}`} className={`rounded-full px-4 py-2 text-sm font-medium ${category === cat.slug ? 'bg-pine text-white' : 'bg-white border border-sage-line text-ink'}`}>
-              {locale === 'en' ? cat.name_en : cat.name_ar}
-            </Link>
-          );
-        })}
+        {categories?.map((cat) => (
+          <Link key={cat.id} href={buildHref('/products', { category: cat.slug, company, q, sort })} className={`rounded-full px-4 py-2 text-sm font-medium ${category === cat.slug ? 'bg-pine text-white' : 'bg-white border border-sage-line text-ink'}`}>
+            {locale === 'en' ? cat.name_en : cat.name_ar}
+          </Link>
+        ))}
       </div>
 
       {products && products.length > 0 ? (

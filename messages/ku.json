@@ -41,16 +41,23 @@
   "products": {
     "title": "بەرهەمەکان",
     "all": "ھەموو",
+    "allCompanies": "ھەموو کۆمپانیاکان",
     "empty": "لە ئێستادا ھیچ بەرهەمێک لەم پۆلە بەردەست نییە.",
     "unavailable": "ئێستا بەردەست نییە",
-    "searchPlaceholder": "بەدوای بەرهەمێکدا بگەڕێ..."
+    "searchPlaceholder": "بەدوای بەرهەمێکدا بگەڕێ...",
+    "sortNewest": "نوێترین",
+    "sortNameAsc": "ناو (ئ-ی)",
+    "sortPriceAsc": "نرخ: لە کەمەوە بۆ زۆر",
+    "sortPriceDesc": "نرخ: لە زۆرەوە بۆ کەم"
   },
   "productDetail": {
     "backToProducts": "گەڕانەوە بۆ بەرهەمەکان",
     "inquireOnWhatsapp": "پرسیار لەسەر نرخ بکە",
     "orderOnWhatsapp": "لە ڕێگەی واتساپەوە داوا بکە",
     "unavailable": "ئێستا بەردەست نییە",
-    "relatedProducts": "بەرهەمی پەیوەندیدار"
+    "relatedProducts": "بەرهەمی پەیوەندیدار",
+    "ratingPrompt": "ئەم بەرهەمە هەڵسەنگێنە (ئارەزوومەندانە)",
+    "ratingThanks": "سوپاس بۆ هەڵسەنگاندنەکەت!"
   },
   "notFound": {
     "title": "ئەم پەڕەیە نەدۆزرایەوە",
@@ -112,6 +119,15 @@
     "descEn": "باسکردن (ئینگلیزی)",
     "category": "پۆل",
     "noCategory": "بێ پۆل",
+    "company": "کۆمپانیا",
+    "noCompany": "بێ کۆمپانیا",
+    "manageCompanies": "بەڕێوەبردنی کۆمپانیاکان",
+    "addCompany": "زیادکردنی کۆمپانیا",
+    "companySaveError": "ھەڵەیەک ڕوویدا لە کاتی پاشەکەوتکردنی کۆمپانیا.",
+    "confirmDeleteCompany": "دڵنیایت لە سڕینەوەی ئەم کۆمپانیایە؟ بەرهەمە پەیوەندیدارەکان دەمێننەوە بەڵام بێ کۆمپانیا.",
+    "noCompanies": "ھێشتا ھیچ کۆمپانیایەک نییە.",
+    "viewRatings": "بینینی هەڵسەنگاندنەکان",
+    "noRatings": "ھێشتا ھیچ هەڵسەنگاندنێک نییە.",
     "price": "نرخ",
     "priceOptional": "ئارەزوومەندانە",
     "isAvailable": "ئێستا بەردەستە",

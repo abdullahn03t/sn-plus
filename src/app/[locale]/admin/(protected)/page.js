@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
 import SignOutButton from '@/components/SignOutButton';
 import DeleteProductButton from '@/components/DeleteProductButton';
-import { Plus, Tags, Newspaper } from 'lucide-react';
+import { Plus, Tags, Newspaper, Building2, Star } from 'lucide-react';
 
 export default async function AdminDashboard() {
   const t = await getTranslations('admin');
@@ -30,9 +30,17 @@ export default async function AdminDashboard() {
           <Tags size={18} />
           {t('manageCategories')}
         </Link>
+        <Link href="/admin/companies" className="inline-flex items-center gap-2 rounded-full bg-white border border-sage-line px-6 py-3 text-ink font-semibold hover:border-pine transition-colors">
+          <Building2 size={18} />
+          {t('manageCompanies')}
+        </Link>
         <Link href="/admin/posts" className="inline-flex items-center gap-2 rounded-full bg-white border border-sage-line px-6 py-3 text-ink font-semibold hover:border-pine transition-colors">
           <Newspaper size={18} />
           {t('managePosts')}
+        </Link>
+        <Link href="/admin/ratings" className="inline-flex items-center gap-2 rounded-full bg-white border border-sage-line px-6 py-3 text-ink font-semibold hover:border-pine transition-colors">
+          <Star size={18} />
+          {t('viewRatings')}
         </Link>
       </div>
 

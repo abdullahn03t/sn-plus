@@ -42,16 +42,23 @@
   "products": {
     "title": "Products",
     "all": "All",
+    "allCompanies": "All Companies",
     "empty": "No products in this category yet.",
     "unavailable": "Currently Unavailable",
-    "searchPlaceholder": "Search products..."
+    "searchPlaceholder": "Search products...",
+    "sortNewest": "Newest",
+    "sortNameAsc": "Name (A-Z)",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low"
   },
   "productDetail": {
     "backToProducts": "Back to Products",
     "inquireOnWhatsapp": "Ask for Price",
     "orderOnWhatsapp": "Order via WhatsApp",
     "unavailable": "Currently Unavailable",
-    "relatedProducts": "Related Products"
+    "relatedProducts": "Related Products",
+    "ratingPrompt": "Rate this product (optional)",
+    "ratingThanks": "Thanks for your rating!"
   },
   "notFound": {
     "title": "Page Not Found",
@@ -113,6 +120,15 @@
     "descEn": "Description (English)",
     "category": "Category",
     "noCategory": "No Category",
+    "company": "Company",
+    "noCompany": "No Company",
+    "manageCompanies": "Manage Companies",
+    "addCompany": "Add Company",
+    "companySaveError": "An error occurred while saving the company.",
+    "confirmDeleteCompany": "Are you sure you want to delete this company? Linked products will remain but without a company.",
+    "noCompanies": "No companies yet.",
+    "viewRatings": "View Ratings",
+    "noRatings": "No ratings yet.",
     "price": "Price",
     "priceOptional": "Optional",
     "isAvailable": "Currently Available",

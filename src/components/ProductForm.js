@@ -5,7 +5,7 @@ import { useRouter } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { createSupabaseBrowserClient } from '@/lib/supabase-browser';
 
-export default function ProductForm({ categories, initialData, productId }) {
+export default function ProductForm({ categories, companies, initialData, productId }) {
   const t = useTranslations('admin');
   const router = useRouter();
   const isEditing = Boolean(productId);
@@ -15,6 +15,7 @@ export default function ProductForm({ categories, initialData, productId }) {
   const [descAr, setDescAr] = useState(initialData?.description_ar || '');
   const [descEn, setDescEn] = useState(initialData?.description_en || '');
   const [categoryId, setCategoryId] = useState(initialData?.category_id || '');
+  const [companyId, setCompanyId] = useState(initialData?.company_id || '');
   const [price, setPrice] = useState(initialData?.price ?? '');
   const [isAvailable, setIsAvailable] = useState(initialData?.is_available ?? true);
   const [existingImages, setExistingImages] = useState(initialData?.images || []);
@@ -57,6 +58,7 @@ export default function ProductForm({ categories, initialData, productId }) {
       description_ar: descAr,
       description_en: descEn,
       category_id: categoryId || null,
+      company_id: companyId || null,
       price: price === '' ? null : parseFloat(price),
       is_available: isAvailable,
       images: [...existingImages, ...uploadedUrls],
@@ -112,9 +114,19 @@ export default function ProductForm({ categories, initialData, productId }) {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-ink/70">{t('price')}</label>
-          <input type="number" min="0" step="0.01" placeholder={t('priceOptional')} value={price} onChange={(e) => setPrice(e.target.value)} className="mt-1 w-full rounded-lg border border-sage-line px-4 py-2 focus:outline-none focus:border-pine" />
+          <label className="block text-sm font-medium text-ink/70">{t('company')}</label>
+          <select value={companyId} onChange={(e) => setCompanyId(e.target.value)} className="mt-1 w-full rounded-lg border border-sage-line px-4 py-2 focus:outline-none focus:border-pine">
+            <option value="">{t('noCompany')}</option>
+            {companies.map((company) => (
+              <option key={company.id} value={company.id}>{company.name_ar} / {company.name_en}</option>
+            ))}
+          </select>
         </div>
+      </div>
+
+      <div className="mt-4">
+        <label className="block text-sm font-medium text-ink/70">{t('price')}</label>
+        <input type="number" min="0" step="0.01" placeholder={t('priceOptional')} value={price} onChange={(e) => setPrice(e.target.value)} className="mt-1 w-full sm:w-64 rounded-lg border border-sage-line px-4 py-2 focus:outline-none focus:border-pine" />
       </div>
 
       <div className="mt-4 flex items-center gap-2">
