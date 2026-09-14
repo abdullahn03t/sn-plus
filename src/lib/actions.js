@@ -5,7 +5,7 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ⚠️ استبدل هذا بإيميلك الفعلي — يجب يطابق الإيميل المسجّل فيه حساب Resend بالضبط
-const CONTACT_EMAIL = 'your-email@example.com';
+const CONTACT_EMAIL = 'abdullah.n03t@gmail.com';
 
 export async function sendContactEmail(formData) {
   const email = formData.get('email');
