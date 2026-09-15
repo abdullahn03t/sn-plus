@@ -85,7 +85,7 @@ export default async function ProductsPage({ searchParams }) {
       {products && products.length > 0 ? (
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} locale={locale} unavailableLabel={t('unavailable')} />
+            <ProductCard key={product.id} product={product} locale={locale} unavailableLabel={t('unavailable')} newLabel={t('newBadge')} />
           ))}
         </div>
       ) : (

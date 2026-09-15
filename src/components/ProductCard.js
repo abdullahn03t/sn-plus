@@ -2,9 +2,14 @@ import { Link } from '@/i18n/navigation';
 import { Package } from 'lucide-react';
 import Image from 'next/image';
 
-export default function ProductCard({ product, locale, unavailableLabel }) {
+const NEW_BADGE_DAYS = 14;
+
+export default function ProductCard({ product, locale, unavailableLabel, newLabel }) {
   const name = locale === 'en' ? product.name_en : product.name_ar;
   const description = locale === 'en' ? product.description_en : product.description_ar;
+
+  const isNew = product.created_at &&
+    (Date.now() - new Date(product.created_at).getTime()) < NEW_BADGE_DAYS * 24 * 60 * 60 * 1000;
 
   return (
     <Link href={`/products/${product.id}`} className="group rounded-2xl bg-white border border-sage-line overflow-hidden hover:border-pine transition-colors">
@@ -19,6 +24,11 @@ export default function ProductCard({ product, locale, unavailableLabel }) {
         {!product.is_available && (
           <div className="absolute top-3 inset-s-3 rounded-full bg-ink/80 px-3 py-1 text-xs font-semibold text-white">
             {unavailableLabel}
+          </div>
+        )}
+        {isNew && product.is_available && (
+          <div className="absolute top-3 inset-e-3 rounded-full bg-amber px-3 py-1 text-xs font-semibold text-white">
+            {newLabel}
           </div>
         )}
       </div>
