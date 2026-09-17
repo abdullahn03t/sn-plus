@@ -3,8 +3,8 @@ import { supabase } from '@/lib/supabase';
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 export default async function sitemap() {
-  const staticPaths = ['', '/products', '/about', '/contact', '/blog'];
-  const locales = ['ar', 'en'];
+  const staticPaths = ['', '/products', '/about', '/contact', '/blog', '/calculator'];
+  const locales = ['ar', 'en', 'ku'];
 
   const staticEntries = locales.flatMap((locale) =>
     staticPaths.map((path) => ({
